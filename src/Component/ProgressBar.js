@@ -35,7 +35,7 @@ const ProgressBar = ({progress,text,votes,percent}) => {
                         : (text === 'Caramel') ? '#AF4343' : '#48A94D'
     }
 
-    const box = {
+    const leftSideDiv = {
         width: `${32*progress/100/3}vh`,
         height: '100%',            
         position: 'relative',
@@ -50,7 +50,7 @@ const ProgressBar = ({progress,text,votes,percent}) => {
         fontWeight: '600'
     }
 
-    const stackTop = {
+    const rightSideDiv = {
         width: `${32*progress/100}vh`,
         height: '100%',            
         position: 'absolute',
@@ -72,8 +72,8 @@ const ProgressBar = ({progress,text,votes,percent}) => {
                 {console.log(text)}
             </div>
             <div style={progressBarContainer}>
-                { progress >= 50 ? <div style={box}> {Math.floor(percent)}%</div> :  <div/>}
-                <div style={stackTop}>{votes} votes</div>
+                { progress >= 50 ? <div style={leftSideDiv}> {Math.floor(percent)}%</div> :  <div/>}
+                <div style={rightSideDiv}>{votes} votes</div>
             </div>
             { progress < 50 ? <span style={{paddingLeft: 20, fontSize: 14}}>{Math.floor(percent)}%</span> : "" }
         </div>
